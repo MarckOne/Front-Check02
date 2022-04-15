@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App</title>
+
+  <!-- ---------------- estilos compartilhados entre login e signup ---------------- -->
+  <link rel="stylesheet" href="./styles/acesso.css">
+  <link rel="stylesheet" href="./styles/responsivo.css">
+  <link type="image/png" href="./assets/icons8-selecionado-16.png"
+  sizes="16x16" rel="icon">
+
+
+  <!-- ---------------------- lógica aplicada no login ----------------------- -->
+   <!--<script src="/scripts/utils.js"></script>-->
+
+</head>
+
+<body>
+  <div class="left">
+    <img src="./assets/pessoa-login.png" alt="">
+  </div>
+
+  <div class="right">
+    <form>
+      <div class="form-header">
+        <p>To-Do App</p>
+      </div>
+      <h1>Acessar</h1>
+
+      <label>
+        Email:
+        <input class="inputLogin" id="inputEmail" type="email" required>
+        <small class="msgErrorEmail">Campo obrigatório, por favor preeencha os dados</small>
+      </label>
+      <label>
+        Senha:
+        <input class="inputLogin" id="inputPassword" type="password" minlength="6" required>
+        <small class="msgErrorPassword">A senha precisa ter no mínimo 6 dígitos.</small>
+      </label>
+      <label class="checkboxShowPassword" for="" id="checkboxShow">Mostar senha
+        <input type="checkbox" name="" id="showPassword">
+      </label>
+      <span class="alertIdentUser" id="alertUser">Usuario ou senha não confere</span>
+      <button type="submit" id="btnAccess" disabled>Acessar</button>
+
+    </form>
+    <div class="ingressar">
+      <a href="./pages/signup.html">Não possui conta? Crie agora mesmo</a>
+    </div>
+  </div>
+
+  <script src="./scripts/index.js"></script>
+
+</body>
+
+</html>

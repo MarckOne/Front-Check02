@@ -1,0 +1,366 @@
+@import url('./common.css');
+header {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  box-shadow: 0px 3px 5px lightgrey;
+  padding: 0 3em;
+  /* margin-bottom: 2em; */
+  /* width: 100%; */
+  overflow: hidden;
+
+}
+
+a {
+  display: block;
+  width: fit-content;
+  padding: .7em 1em;
+  border-bottom: .2em solid white;
+  text-decoration: none;
+  color: white
+}
+
+.menu-infos-login{
+
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+
+}
+
+.user-info {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-left: auto;
+  color: rgb(223, 223, 223);
+
+}
+
+.user-info p {
+  text-transform: capitalize;
+}
+
+.user-info .user-image {
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  background-color: white;
+  opacity: .4;
+  margin-left: .7em;
+}
+
+#closeApp{
+  margin-left: 15px;
+  font-size: .7em;
+  background-color: rgb(218, 88, 88);
+  color: white;
+  border-radius: 50vh;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Nova tarefa ----------------------------------------------------------- */
+
+.new-task {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 80%;
+  margin: 0 10%;
+  padding: 1em;
+  box-shadow: 2px 2px 10px lightgrey;
+  border-radius: .2em;
+  z-index: 20;
+}
+
+.new-task input[type=text] {
+  border: none;
+  flex: 1;
+  border-bottom: 1px solid lightgrey;
+  border-radius: 0;
+  padding: .3em;
+  font-size: 1.1em;
+}
+
+.new-task input:focus {
+  outline: none;
+  border-bottom: 1px solid grey;
+}
+
+.new-task input::placeholder {
+  color: rgb(197, 197, 197);
+  text-indent: .2em;
+}
+
+.new-task button {
+  height: 2em;
+  width: 2em;
+  background-color: transparent;
+  margin-left: 2em;
+  margin-right: 1em;
+  opacity: .5;
+  cursor: pointer;
+}
+
+.new-task button:hover {
+  opacity: 1;
+}
+
+.new-task button img {
+  height: 100%;
+  width: 100%;
+}
+
+.not-done {
+  width: 2em;
+  height: 2em;
+  background-color: var(--app-grey);
+  margin-right: 1em;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  color: grey;
+}
+
+/* Lista de tarefas ----------------------------------------------------------- */
+
+.pending-tasks {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  list-style: none;
+  margin: 2em 15%;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.task .not-done {
+  position: relative;
+  height: 1.5em;
+  width: 1.5em;
+  background-color: white;
+  box-shadow: 2px 2px 5px lightgrey;
+  border: 2px solid var(--secondary);
+  z-index: 2;
+  transition: background-color 200ms linear;
+}
+
+.task .not-done:hover {
+  background-color: var(--secondary);
+}
+
+.task:first-child .not-done::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: calc(.75em - 1px);
+  display: block;
+  height: 3em;
+  width: 2px;
+  background-color: var(--secondary);
+}
+
+.task:not(:last-child) .not-done::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: calc(.75em - 1px);
+  display: block;
+  height: 4.5em;
+  width: 2px;
+  background-color: var(--secondary);
+}
+
+.task .description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  background-color: white;
+  padding: 1em 2em;
+  box-shadow: 2px 2px 5px lightgrey;
+}
+
+.task .name {
+  color: rgb(95, 95, 95);
+}
+
+.task .timestamp {
+  font-size: .9em;
+  color: rgb(134, 134, 134);
+}
+
+.task .bin-img{
+  height: 1.2em;
+  width: 1.2em;
+  cursor: pointer;
+}
+
+/* Tarefas terminadas ----------------------------------------------------------- */
+
+.finished-title {
+  position: relative;
+  width: 8em;
+  text-align: center;
+  padding: .5em 1em;
+  background-color: white;
+  border-radius: .2em;
+  box-shadow: 3px 3px 5px lightgrey;
+  color: rgb(170, 170, 170);
+  font-weight: 400;
+  font-size: 1.1em;
+  margin-left: calc(15% - 4em);
+  z-index: 20;
+}
+
+.finished-tasks {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  list-style: none;
+  margin: 2em 15%;
+}
+
+.finished-tasks i{
+  color: grey;
+  background-color: rgb(228, 228, 228);
+}
+.finished-tasks button{
+  margin-left: 10px;
+}
+
+.finished-tasks .tarefa .descricao {
+  background-color: rgb(228, 228, 228);
+}
+
+.finished-tasks .tarefa .descricao .nome {
+  color: grey;
+  text-decoration: line-through;
+}
+
+#skeleton .descricao{
+  background-color: rgb(189, 189, 189);
+}
+#skeleton p{
+  background-color: rgb(214, 214, 214);
+  color: rgb(214, 214, 214);
+}
+#skeleton .not-done{
+  background-color: rgb(189, 189, 189);
+}
+
+#skeleton{
+  animation: trasparencia 1s infinite;
+}
+@keyframes trasparencia {
+  0%{ opacity: 0.5;}
+  100%{ opacity: 0.8;}
+}
+
+#skeleton.display{
+  display: none;
+}
+
+.done {
+
+  background-color: var(--secondary);
+}
+
+
+.alert {
+
+  display: flex;
+  padding: 24px 48px;
+  justify-content: right;
+  align-items: center;
+  gap: 32px;
+  opacity: 0;
+  margin-bottom: 32px;
+  transition: opacity 0.6s ease-in-out;
+  /* background-color: rgb(211, 134, 134); */
+  overflow: hidden;
+
+
+}
+
+.alertShow {
+
+  display: flex;
+  justify-content: right;
+  background-color: var(--bg-alert);
+  transition: opacity 0.6s ease-in-out;
+  opacity: 1;
+
+
+}
+
+.alert p {
+
+  color: var(--app-black);
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 14px;
+
+}
+
+
+.alert button {
+
+  padding: 8px 32px;
+  border: solid 1px var(--app-grey);
+  cursor: pointer;
+  background: transparent;
+  color: white;
+  border-radius: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: 0.6s;
+}
+
+.alert button:hover {
+
+  background-color: var(--app-grey);
+  color: var(--app-black);
+
+}
+
+.alert button:nth-last-child(1) {
+
+  background: #ffffffb9;
+  color: black;
+
+}
+
+.alert button:nth-last-child(1):hover {
+
+  background-color: white;
+}
+
+
+.back-to-top a {
+  text-decoration: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #f7f7f7;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #888888;
+  transform: rotate(-90deg);
+  border: 0.1rem solid #888888;
+  opacity: .9;
+  z-index: 10;
+
+}

@@ -1,0 +1,147 @@
+@import url('./common.css');
+
+body{
+  display: flex;
+}
+
+h1 {
+  color: rgb(116, 116, 116);
+  font-weight: 300;
+  margin: .5em 0;
+}
+
+form {
+  position: relative;
+  max-width: 26em;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 2em auto;
+  box-shadow: 0 5px 5px lightgrey;
+  padding: 1em 2.5em;
+  box-sizing: border-box;
+}
+
+form:after {
+  position: absolute;
+  content: '';
+  width: .7em;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(var(--primary), var(--secondary));
+}
+
+
+.inputLogin {
+  width: 100%;
+  /* padding: .4em .5em; */
+  padding: .4em 0;
+  background-color: var(--app-grey);
+  border: 1px solid var(--app-grey);
+  border-radius: .2em;
+}
+
+.inputLogin:focus {
+  outline: none;
+  border: 1px solid lightgrey;
+}
+
+.inputLogin .error{
+  border: 1px solid var(--error);
+}
+
+small{
+  color: var(--error);
+  font-size: 12px;
+  display: none;
+}
+
+small.show{
+  display: block;
+}
+
+.checkboxShowPassword {
+
+  display: none;
+  align-items: center;
+  gap: 16px;
+  justify-content: right;
+
+}
+
+.showPassword {
+
+  display: flex;
+
+}
+
+.alertIdentUser {
+
+  opacity: 0;
+  background-color: var(--bg-alert);
+  font-size: 12px;
+  margin: 16px 0 0 0;
+  color: var(--error);
+  padding: 4px 16px;
+  transition: 0.6s;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+
+}
+
+.alertIdentUserShow {
+
+  opacity: 1;
+  display: block;
+
+}
+
+label {
+  width: 100%;
+  font-weight: 300;
+  margin-bottom: -.1em;
+  margin-top: 1em;
+  font-size: .8em;
+}
+
+button {
+  padding: .5em 3em;
+  background-color: var(--secondary);
+  color: white;
+  margin-top: 1em;
+  font-weight: 400;
+  font-size: 1em;
+}
+
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.form-header {
+  color: grey;
+  font-size: 2em;
+}
+.ingressar{
+  text-align: center;
+}
+.left{
+  width: 50%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.left img{
+  width:60%;
+}
+.right{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
