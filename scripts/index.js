@@ -1,73 +1,24 @@
+//References
 const inputEmailRef = document.querySelector('#inputEmail');
 const inputPasswordRef = document.querySelector('#inputPassword');
 const inputBtnAccessRef = document.querySelector('#btnAccess');
-const inputMsgErrorEmailRef = document.querySelector('.msgErrorEmail');
-const inputMsgErrorPasswordRef = document.querySelector('.msgErrorPassword');
 const linkCreateAccountRef = document.querySelector('a');
-const inputShowPasswordRef = document.querySelector('#showPassword');
-const checkboxPasswordRef = document.querySelector('#checkboxShow');
 const alertIdentUserRef = document.querySelector('#alertUser');
+const inputShowPasswordRef = document.querySelector('#showPassword');
 
-//Valida email
-const validateEmail = () => {
-  if (inputEmailRef.checkValidity()) {
-    inputMsgErrorEmailRef.classList.remove('show')
-    alertIdentUserRef.classList.remove('alertIdentUserShow')
-    return true;
-  } else {
-    inputMsgErrorEmailRef.classList.add('show')
-    return false
-  }
-}
-
-//Valida senha
-const validatePassword = () => {
-  if (inputPasswordRef.checkValidity()) {
-    inputMsgErrorPasswordRef.classList.remove('show')
-    return true;
-  } else {
-    inputMsgErrorPasswordRef.classList.add('show')
-    return false
-  }
-}
-
-// Habilita campo com o checkbox para visualizar a senha
-const showFieldCheckbox = () => {
-
-  if (inputPasswordRef.value.length >= 2) {
-    checkboxPasswordRef.classList.add('showPassword')
-
-  }
-  else {
-    checkboxPasswordRef.classList.remove('showPassword')
-  }
-}
-
-// Checkbox para visualizar a senha
-const showPassword = () => {
-
-  if (inputShowPasswordRef.checked) {
-    inputPasswordRef.type = inputPasswordRef.type == 'text' ? 'password' : 'text'
-  }
-  else {
-    inputPasswordRef.type = inputPasswordRef.type == 'password' ? 'text' : 'password'
-  }
-}
-
-//Valida todos os campos do formulário
+//Validate form
 const validateForm = () => {
   return validateEmail() &&
   validatePassword()
 }
 
-//Habilita o botão acessar
+//Enable btn access
 const enableBtnAccess = () =>{
   inputBtnAccessRef.disabled = !validateForm();
 }
 
-//Faz o login do usuário
+//Login
 const loginUser = () =>{
-
   let usuarioLogin = {
     email: inputEmailRef.value,
     password: inputPasswordRef.value
@@ -90,27 +41,45 @@ const loginUser = () =>{
       response.json()
       .then(data =>{
         localStorage.setItem('token', data.jwt)
-        window.location.assign('./pages/tarefas.html')
+        showSpinner()
+        sweetAlertLogin()
+        setTimeout(()=>{window.location.assign('./pages/tarefas.html')},2000)
     })
+
   }
   else {
     alertIdentUserRef.classList.add('alertIdentUserShow')
-
   }
   })
 }
 
-//Acessar a página do para criar conta caso não tenha
+//Msg success
+const sweetAlertLogin = () => {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Login feito com sucesso',
+    showConfirmButton: false,
+    timer: 1500
+  })
+}
+
+// Access create account page
 const acessCreateAccountPage = () => {
   window.location.assign("./pages/signup.html");
 }
 
+//Functions
 inputEmailRef.addEventListener('keyup', enableBtnAccess);
 inputPasswordRef.addEventListener('keyup', enableBtnAccess);
-inputPasswordRef.addEventListener('keydown', showFieldCheckbox);
 inputBtnAccessRef.addEventListener('click', e => {
   e.preventDefault();
   loginUser();
 });
+inputPasswordRef.addEventListener('keydown', () =>{
+  showFieldCheckbox()
+});
+inputShowPasswordRef.addEventListener('change', () =>{
+  showPassword()
+});
 linkCreateAccountRef.addEventListener('click', acessCreateAccountPage);
-inputShowPasswordRef.addEventListener('change', showPassword);

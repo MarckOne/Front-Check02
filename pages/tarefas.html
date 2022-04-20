@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ----------------------------- estilos CSS ----------------------------- -->
+  <!-- ----------------------------- CSS styles ----------------------------- -->
   <link rel="stylesheet" href="../styles/tarefas.css">
   <link rel="stylesheet" href="../styles/responsivo.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- ------------------- Biblioteca de icones - Fontawesome -------------------- -->
+  <!-- ------------------- Icons Library - Fontawesome -------------------- -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -34,7 +34,11 @@
     </nav>
 
     <div class="menu-infos-login">
-      <button class="menu-mobile hamburguer" id="menu-toggle" ></button>
+      <button class="menu-mobile" id="menu-toggle" >
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
       <div class="user-info" id="showMenu">
         <img src="" class="user-image">
         <p id="userName">Nome usuário</p>
@@ -55,11 +59,12 @@
   <form class="new-task">
     <div class="not-done1"></div>
     <input id="newTask" type="text" placeholder="Nova tarefa">
-    <button type="submit" id="registerTarefa">
+    <button type="submit" id="registerTask">
       <img src="../assets/plus.png" alt="Adicionar uma nova tarefa">
     </button>
   </form>
 
+  <p class="msg-notasks">Você não possui nenhuma tarefa cadastrada.</p>
 
   <ul class="pending-tasks">
     <div id="skeleton">
@@ -100,6 +105,7 @@
   </div>
 
   <script src="../scripts/tarefas.js"></script>
+  <script src="../scripts/validates.js"></script>
 </body>
 
 </html>
