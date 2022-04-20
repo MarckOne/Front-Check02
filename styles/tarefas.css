@@ -125,6 +125,16 @@ a {
   color: grey;
 }
 
+.not-done1 {
+  width: 2em;
+  height: 2em;
+  background-color: var(--app-grey);
+  margin-right: 1em;
+  border-radius: 50%;
+  text-align: center;
+  color: grey;
+}
+
 /* Lista de tarefas ----------------------------------------------------------- */
 
 .pending-tasks {
